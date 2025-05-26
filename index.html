@@ -14,7 +14,7 @@
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0 20px 40px 20px; /* Margens laterais de 20px e inferior de 40px */
+            padding: 0 20px 40px 20px;
         }
 
         h1 {
@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -37,6 +37,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             padding: 20px;
             box-sizing: border-box;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .box h2 {
@@ -44,13 +48,32 @@
             font-size: 28px;
             margin-bottom: 15px;
             font-weight: bold;
+            width: 100%;
         }
 
-        .box p {
+        .text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .text p {
             text-align: justify;
             margin-bottom: 10px;
             line-height: 1.6;
             font-size: 17px;
+        }
+
+        .image {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -63,26 +86,41 @@
         <!-- Wabi-Sabi -->
         <div class="box">
             <h2>Wabi-Sabi</h2>
-            <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida. É o sussurro tranquilo do tempo em cada rachadura, o encanto delicado das coisas simples e humildes. É apreciar o que é natural, imperfeito e incompleto — pois é nessas marcas da passagem do tempo que reside a verdadeira poesia do mundo.</p>
-            <p>No Wabi-Sabi, cada cicatriz, cada desgaste, conta uma história única, celebrando a autenticidade e a serenidade de tudo aquilo que é transientemente belo. É um convite para desacelerar, contemplar a impermanência e abraçar a graça do momento presente, onde a beleza floresce justamente por ser passageira e imperfeita.</p>
+            <div class="text">
+                <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida. É o sussurro tranquilo do tempo em cada rachadura, o encanto delicado das coisas simples e humildes. É apreciar o que é natural, imperfeito e incompleto — pois é nessas marcas da passagem do tempo que reside a verdadeira poesia do mundo.</p>
+                <p>No Wabi-Sabi, cada cicatriz, cada desgaste, conta uma história única, celebrando a autenticidade e a serenidade de tudo aquilo que é transientemente belo. É um convite para desacelerar, contemplar a impermanência e abraçar a graça do momento presente, onde a beleza floresce justamente por ser passageira e imperfeita.</p>
+            </div>
+            <div class="image">
+                <img src="https://source.unsplash.com/400x300/?nature,leaf" alt="Imagem Wabi-Sabi">
+            </div>
         </div>
 
         <!-- Upcycling -->
         <div class="box" data-aos="fade-up">
             <h2>Upcycling</h2>
-            <p>No mundo onde tudo parece descartável, o upcycling surge como um sopro de esperança, criatividade e consciência. É a arte de ressignificar, de olhar para o que parecia fim e enxergar recomeços. Transformar, reinventar, dar nova vida — não como algo menor, mas como algo mais belo, mais forte, mais cheio de sentido.</p>
-            <p>Cada objeto carrega uma história. E, ao invés de ser esquecido, ele renasce em novas formas, em novos propósitos. É quando uma madeira esquecida se torna abrigo, quando tecidos esquecidos se tornam arte, quando pedaços soltos se encontram para formar algo único.</p>
-            <p>Upcycling é resistência poética contra o desperdício. É dizer que nada é lixo, que tudo pode florescer novamente nas mãos de quem vê além. É transformar passado em futuro, rejeito em beleza, descarte em criação.</p>
-            <p>Porque a verdadeira sustentabilidade mora na criatividade. E quem cria, também cuida, também cura.</p>
+            <div class="text">
+                <p>No mundo onde tudo parece descartável, o upcycling surge como um sopro de esperança, criatividade e consciência. É a arte de ressignificar, de olhar para o que parecia fim e enxergar recomeços. Transformar, reinventar, dar nova vida — não como algo menor, mas como algo mais belo, mais forte, mais cheio de sentido.</p>
+                <p>Cada objeto carrega uma história. E, ao invés de ser esquecido, ele renasce em novas formas, em novos propósitos. É quando uma madeira esquecida se torna abrigo, quando tecidos esquecidos se tornam arte, quando pedaços soltos se encontram para formar algo único.</p>
+                <p>Upcycling é resistência poética contra o desperdício. É dizer que nada é lixo, que tudo pode florescer novamente nas mãos de quem vê além. É transformar passado em futuro, rejeito em beleza, descarte em criação.</p>
+                <p>Porque a verdadeira sustentabilidade mora na criatividade. E quem cria, também cuida, também cura.</p>
+            </div>
+            <div class="image">
+                <img src="https://source.unsplash.com/400x300/?recycle,craft" alt="Imagem Upcycling">
+            </div>
         </div>
 
         <!-- DIY -->
         <div class="box" data-aos="fade-up">
             <h2>DIY - Do It Yourself</h2>
-            <p>DIY é mais do que fazer — é se conectar. É olhar para as próprias mãos e perceber que nelas existe poder, autonomia e criação. É transformar matéria, tempo e intenção em algo que carrega alma, significado e autenticidade.</p>
-            <p>Quando fazemos algo nós mesmos, não criamos apenas objetos. Criamos vínculos, memórias e histórias. O simples ato de construir, costurar, pintar, montar ou consertar se torna uma forma de expressão, uma declaração de que somos capazes.</p>
-            <p>DIY é liberdade. É se libertar do consumo desenfreado e encontrar beleza na simplicidade do feito à mão. É perceber que, muitas vezes, o valor não está no que compramos, mas no que criamos. Cada traço imperfeito é uma assinatura, cada detalhe carrega intenção.</p>
-            <p>Fazer por si é um gesto de amor próprio, de resistência e de cuidado com o mundo. É transformar o ordinário em extraordinário, o simples em singular.</p>
+            <div class="text">
+                <p>DIY é mais do que fazer — é se conectar. É olhar para as próprias mãos e perceber que nelas existe poder, autonomia e criação. É transformar matéria, tempo e intenção em algo que carrega alma, significado e autenticidade.</p>
+                <p>Quando fazemos algo nós mesmos, não criamos apenas objetos. Criamos vínculos, memórias e histórias. O simples ato de construir, costurar, pintar, montar ou consertar se torna uma forma de expressão, uma declaração de que somos capazes.</p>
+                <p>DIY é liberdade. É se libertar do consumo desenfreado e encontrar beleza na simplicidade do feito à mão. É perceber que, muitas vezes, o valor não está no que compramos, mas no que criamos. Cada traço imperfeito é uma assinatura, cada detalhe carrega intenção.</p>
+                <p>Fazer por si é um gesto de amor próprio, de resistência e de cuidado com o mundo. É transformar o ordinário em extraordinário, o simples em singular.</p>
+            </div>
+            <div class="image">
+                <img src="https://source.unsplash.com/400x300/?handmade,tools" alt="Imagem DIY">
+            </div>
         </div>
     </div>
 
