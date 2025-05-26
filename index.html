@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Primeiro Site</title>
+    <title>Feira 201 & 203</title>
     <style>
         body {
             background-color: #006400; /* Fundo verde escuro */
@@ -18,13 +18,13 @@
             margin-top: 50px;
         }
 
-        .container {
+       .container {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Espaço entre os retângulos */
-    margin-top: 30px;
-    padding-left: 40px;  /* margem maior na lateral esquerda */
-    padding-right: 40px; /* margem maior na lateral direita */
+    gap: 20px;            /* espaço entre os retângulos */
+    margin: 30px auto 0;  /* topo 30px, esquerda e direita automáticos para centralizar */
+    max-width: 960px;     /* largura máxima da linha das caixas */
+    padding: 0 40px;      /* margem interna (padding) nas laterais para “respirar” */
+    box-sizing: border-box; /* para padding não aumentar a largura total */
 }
 
        .box {
