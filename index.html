@@ -6,24 +6,45 @@
     <title>Meu Primeiro Site</title>
     <style>
         body {
-            background-color: #006400; /* Verde escuro tipo folha */
-            color: white; /* Texto branco pra ficar visível */
+            background-color: #006400; /* Fundo verde escuro */
+            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
         h1 {
-            text-align: center; /* Centraliza o título */
+            text-align: center;
             margin-top: 50px;
         }
 
-        p {
-            text-align: center; /* Centraliza também o parágrafo, opcional */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espaço entre os retângulos */
+            margin-top: 30px;
+        }
+
+        .box {
+            background-color: white;
+            width: 200px;
+            height: 150px;
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
         }
     </style>
 </head>
 <body>
+
     <h1>Feira de ciências 201 & 203</h1>
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+  
+
 </body>
 </html>
