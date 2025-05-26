@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Feira 201 & 203</title>
     <style>
         body {
-            background-color: #006400; /* Fundo verde escuro */
+            background-color: #006400;
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-
         h1 {
             text-align: center;
             margin-top: 50px;
         }
-
-       .container {
-    display: flex;
-    gap: 10px;             /* espaço entre os retângulos */
-    max-width: 1280px;     /* largura máxima da linha */
-    margin: 30px auto 0;   /* centraliza horizontalmente e dá margem topo */
-    justify-content: center;
-    box-sizing: border-box; 
-}
-
-       .box {
-    background-color: white;
-    color: #005900; /* texto preto */
-    width: 400px;
-    height: 150px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-}
+        .container {
+            display: flex;
+            gap: 10px;
+            max-width: 1280px;
+            margin: 30px auto 0;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .box {
+            background-color: white;
+            color: #005900;
+            width: 400px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-weight: normal;
+            font-size: 14px;
+            overflow-y: auto;
+        }
+        .box h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .box p {
+            text-align: justify;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
-
     <h1>Feira de ciências 201 & 203</h1>
-
     <div class="container">
-        <div class="box">Wabi-sabi</div>
+        <div class="box">
+            <h2>Wabi-Sabi</h2>
+            <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida. É o sussurro tranquilo do tempo em cada rachadura, o encanto delicado das coisas simples e humildes. É apreciar o que é natural, imperfeito e incompleto — pois é nessas marcas da passagem do tempo que reside a verdadeira poesia do mundo.</p>
+            <p>No Wabi-Sabi, cada cicatriz, cada desgaste, conta uma história única, celebrando a autenticidade e a serenidade de tudo aquilo que é transientemente belo. É um convite para desacelerar, contemplar a impermanência e abraçar a graça do momento presente, onde a beleza floresce justamente por ser passageira e imperfeita.</p>
+        </div>
         <div class="box">Upcycling</div>
         <div class="box">DIY - Do It Yourself</div>
     </div>
-
-  
-
 </body>
 </html>
