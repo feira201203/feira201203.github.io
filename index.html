@@ -10,7 +10,7 @@
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0 20px 40px 20px; /* Margens laterais de 20px e inferior de 40px */
+            padding: 0 20px 40px 20px;
         }
 
         h1 {
@@ -18,20 +18,21 @@
             margin-top: 50px;
         }
 
-        .container {
+        .section {
             display: flex;
-            gap: 10px;
-            max-width: 1280px;
-            margin: 30px auto 0;
-            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
             flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
         }
 
         .box {
             background-color: white;
             color: #005900;
-            width: 400px;
-            min-height: 400px;
+            flex: 1 1 400px;
+            min-width: 300px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             padding: 20px;
@@ -55,19 +56,38 @@
             margin-bottom: 10px;
             line-height: 1.5;
         }
+
+        .image {
+            flex: 1 1 300px;
+            min-width: 280px;
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
 
     <h1>Feira de ciências 201 & 203</h1>
 
-    <div class="container">
+    <!-- Wabi-Sabi -->
+    <div class="section">
         <div class="box">
             <h2>Wabi-Sabi</h2>
             <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida. É o sussurro tranquilo do tempo em cada rachadura, o encanto delicado das coisas simples e humildes. É apreciar o que é natural, imperfeito e incompleto — pois é nessas marcas da passagem do tempo que reside a verdadeira poesia do mundo.</p>
             <p>No Wabi-Sabi, cada cicatriz, cada desgaste, conta uma história única, celebrando a autenticidade e a serenidade de tudo aquilo que é transientemente belo. É um convite para desacelerar, contemplar a impermanência e abraçar a graça do momento presente, onde a beleza floresce justamente por ser passageira e imperfeita.</p>
         </div>
+        <div class="image">
+            <img src="https://via.placeholder.com/400x300?text=Wabi-Sabi" alt="Imagem Wabi-Sabi">
+        </div>
+    </div>
 
+    <!-- Upcycling -->
+    <div class="section">
         <div class="box">
             <h2>Upcycling</h2>
             <p>No mundo onde tudo parece descartável, o <strong>upcycling</strong> surge como um sopro de esperança, criatividade e consciência. É a arte de ressignificar, de olhar para o que parecia fim e enxergar recomeços. Transformar, reinventar, dar nova vida — não como algo menor, mas como algo mais belo, mais forte, mais cheio de sentido.</p>
@@ -75,13 +95,22 @@
             <p><strong>Upcycling</strong> é resistência poética contra o desperdício. É dizer que nada é lixo, que tudo pode florescer novamente nas mãos de quem vê além. É transformar passado em futuro, rejeito em beleza, descarte em criação.</p>
             <p>Porque a verdadeira sustentabilidade mora na criatividade. E quem cria, também cuida, também cura.</p>
         </div>
+        <div class="image">
+            <img src="https://via.placeholder.com/400x300?text=Upcycling" alt="Imagem Upcycling">
+        </div>
+    </div>
 
+    <!-- DIY -->
+    <div class="section">
         <div class="box">
             <h2>DIY - Do It Yourself</h2>
             <p><strong>DIY</strong> — Do It Yourself — é mais do que uma prática, é uma filosofia de vida. É o chamado para colocar as mãos no mundo, transformar ideias em matéria, sonhos em realidade. É descobrir que somos capazes de criar, construir e reinventar com o que temos, com o que somos.</p>
             <p>É a magia de ver nascer, das próprias mãos, aquilo que antes só existia na imaginação. É costurar, martelar, colar, pintar. É transformar o simples em especial, o velho em novo, o comum em único.</p>
             <p>Fazer por si é também um gesto de liberdade. É não depender, é não esperar. É a celebração da autonomia, da criatividade, da beleza que brota quando a gente se permite errar, aprender, ajustar — e, no fim, se orgulhar do que fez.</p>
             <p>O <strong>DIY</strong> ensina que somos criadores do nosso espaço, da nossa história, da nossa própria estética. Porque quem faz com as mãos, também transforma o mundo.</p>
+        </div>
+        <div class="image">
+            <img src="https://via.placeholder.com/400x300?text=DIY" alt="Imagem DIY">
         </div>
     </div>
 
