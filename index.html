@@ -75,15 +75,6 @@
             border-radius: 10px;
             object-fit: cover;
         }
-
-        /* Mensagem abaixo do conteúdo */
-        #chat-hint {
-            text-align: center;
-            color: #ddd;
-            font-size: 18px;
-            margin: 40px 0 20px 0;
-            font-style: italic;
-        }
     </style>
 </head>
 
@@ -133,17 +124,13 @@
         </div>
     </div>
 
-    <div id="chat-hint">
-      A assistente irá te ajudar: diga que materiais você tem ou o que deseja fazer.
-    </div>
-
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
 
-    <!-- Landbot Livechat Lazy Load -->
+    <!-- Landbot Livechat -->
     <script>
       window.addEventListener('mouseover', initLandbot, { once: true });
       window.addEventListener('touchstart', initLandbot, { once: true });
@@ -155,7 +142,7 @@
           s.async = true;
           s.addEventListener('load', function() {
             myLandbot = new Landbot.Livechat({
-              configUrl: 'https://chats.landbot.io/v3/H-2966267-5L2WVJFRBB395KNN/index.json',
+              configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2966267-5L2WVJFRBB395KNN/index.json',
             });
           });
           s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
@@ -167,3 +154,4 @@
 
 </body>
 </html>
+
