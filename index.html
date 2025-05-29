@@ -283,18 +283,43 @@
       }, 800);
     }
 
-    function getFakeResponse(message) {
-      if (message.includes('oi') || message.includes('olá')) {
-        return 'Olá! Como posso ajudar você hoje?';
-      } else if (message.includes('feira')) {
-        return 'A feira acontecerá nos dias 10 e 11 de junho.';
-      } else if (message.includes('horário')) {
-        return 'O horário da feira é das 9h às 18h.';
-      } else if (message.includes('tchau') || message.includes('adeus')) {
-        return 'Até mais! Volte sempre :)';
-      } else {
-        return 'Desculpe, não entendi. Pode reformular?';
-      }
+    function sendMessage() {
+  const message = chatbotInput.value.trim().toLowerCase();
+  if (!message) return;
+
+  appendMessage(message, 'user');
+  chatbotInput.value = '';
+  chatbotInput.disabled = true;
+  chatbotSendBtn.disabled = true;
+
+  // Banco de perguntas e respostas fake:
+  const respostas = {
+    "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
+    "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
+    "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
+    "rolhas de cortiça": "Rolhas podem virar chaveiros ou suportes para pins, basta furar e decorar com tinta.",
+    // adicione mais pares de chave: resposta aqui...
+  };
+
+  // Procura uma resposta baseada nas palavras chave
+  let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+
+  for (const chave in respostas) {
+    if (message.includes(chave)) {
+      respostaEncontrada = respostas[chave];
+      break;
+    }
+  }
+
+  // Simula um tempo de resposta
+  setTimeout(() => {
+    appendMessage(respostaEncontrada, 'bot');
+    chatbotInput.disabled = false;
+    chatbotSendBtn.disabled = false;
+    chatbotInput.focus();
+  }, 800);
+}
+
     }
   </script>
 </body>
