@@ -109,7 +109,6 @@
       flex-direction: column;
       overflow: hidden;
       z-index: 9999;
-      color: black;
     }
 
     #chatbot-header {
@@ -125,6 +124,7 @@
       padding: 10px;
       overflow-y: auto;
       font-size: 14px;
+      color: black;
       background: #f9f9f9;
     }
 
@@ -231,7 +231,7 @@
   <button id="chatbot-button" title="Abrir Chatbot">💬</button>
 
   <div id="chatbot-window">
-    <div id="chatbot-header">Chatbot Fake</div>
+    <div id="chatbot-header">Chatbot AI</div>
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-area">
       <input id="chatbot-input" type="text" placeholder="Digite sua mensagem..." />
@@ -247,8 +247,12 @@
     const chatbotSendBtn = document.getElementById('chatbot-send-btn');
 
     chatbotButton.addEventListener('click', () => {
-      chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
-      if (chatbotWindow.style.display === 'flex') chatbotInput.focus();
+      if (chatbotWindow.style.display === 'flex') {
+        chatbotWindow.style.display = 'none';
+      } else {
+        chatbotWindow.style.display = 'flex';
+        chatbotInput.focus();
+      }
     });
 
     chatbotSendBtn.addEventListener('click', sendMessage);
@@ -256,16 +260,8 @@
       if (e.key === 'Enter') sendMessage();
     });
 
-    function appendMessage(text, sender) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
-      messageDiv.textContent = text;
-      chatbotMessages.appendChild(messageDiv);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
     function sendMessage() {
-      const message = chatbotInput.value.trim();
+      const message = chatbotInput.value.trim().toLowerCase();
       if (!message) return;
 
       appendMessage(message, 'user');
@@ -273,53 +269,40 @@
       chatbotInput.disabled = true;
       chatbotSendBtn.disabled = true;
 
-      // Resposta fake com delay
+      const respostas = {
+        "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
+        "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
+        "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
+        "rolhas de cortiça": "Rolhas podem virar chaveiros ou suportes para pins, basta furar e decorar com tinta.",
+        "papelão": "Você pode fazer caixas organizadoras ou molduras usando papelão cortado e decorado.",
+        "tecido velho": "Use tecido velho para fazer almofadas, sacolas ou patchwork criativo.",
+        "lata": "Latas vazias podem virar luminárias ou vasos depois de uma boa pintura e decoração.",
+      };
+
+      let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+
+      for (const chave in respostas) {
+        if (message.includes(chave)) {
+          respostaEncontrada = respostas[chave];
+          break;
+        }
+      }
+
       setTimeout(() => {
-        const response = getFakeResponse(message.toLowerCase());
-        appendMessage(response, 'bot');
+        appendMessage(respostaEncontrada, 'bot');
         chatbotInput.disabled = false;
         chatbotSendBtn.disabled = false;
         chatbotInput.focus();
       }, 800);
     }
 
-    function sendMessage() {
-  const message = chatbotInput.value.trim().toLowerCase();
-  if (!message) return;
-
-  appendMessage(message, 'user');
-  chatbotInput.value = '';
-  chatbotInput.disabled = true;
-  chatbotSendBtn.disabled = true;
-
-  // Banco de perguntas e respostas fake:
-  const respostas = {
-    "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
-    "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
-    "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
-    "rolhas de cortiça": "Rolhas podem virar chaveiros ou suportes para pins, basta furar e decorar com tinta.",
-    // adicione mais pares de chave: resposta aqui...
-  };
-
-  // Procura uma resposta baseada nas palavras chave
-  let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
-
-  for (const chave in respostas) {
-    if (message.includes(chave)) {
-      respostaEncontrada = respostas[chave];
-      break;
-    }
-  }
-
-  // Simula um tempo de resposta
-  setTimeout(() => {
-    appendMessage(respostaEncontrada, 'bot');
-    chatbotInput.disabled = false;
-    chatbotSendBtn.disabled = false;
-    chatbotInput.focus();
-  }, 800);
-}
-
+    function appendMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+      messageDiv.textContent = text;
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
   </script>
 </body>
