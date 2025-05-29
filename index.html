@@ -6,7 +6,7 @@
   <title>Feira 201 & 203</title>
 
   <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     body {
@@ -135,6 +135,7 @@
       max-width: 80%;
       clear: both;
       word-wrap: break-word;
+      white-space: pre-wrap;
     }
 
     .user-message {
@@ -178,16 +179,47 @@
   <h1>Feira de ciências 201 & 203</h1>
 
   <div class="container">
-    <div class="box" data-aos="fade-up">
+    <!-- Conteúdos já existentes -->
+
+    <!-- Wabi-Sabi -->
+    <div class="box">
       <h2>Wabi-Sabi</h2>
       <div class="text">
-        <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida, celebrando a simplicidade e o natural.</p>
+        <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida. É o sussurro tranquilo do tempo em cada rachadura, o encanto delicado das coisas simples e humildes. É apreciar o que é natural, imperfeito e incompleto — pois é nessas marcas da passagem do tempo que reside a verdadeira poesia do mundo.</p>
+        <p>No Wabi-Sabi, cada cicatriz, cada desgaste, conta uma história única, celebrando a autenticidade e a serenidade de tudo aquilo que é transientemente belo. É um convite para desacelerar, contemplar a impermanência e abraçar a graça do momento presente, onde a beleza floresce justamente por ser passageira e imperfeita.</p>
       </div>
       <div class="image">
         <img src="https://source.unsplash.com/400x300/?nature,leaf" alt="Imagem Wabi-Sabi" />
       </div>
     </div>
-    <!-- Outros conteúdos podem ser adicionados aqui -->
+
+    <!-- Upcycling -->
+    <div class="box" data-aos="fade-up">
+      <h2>Upcycling</h2>
+      <div class="text">
+        <p>No mundo onde tudo parece descartável, o upcycling surge como um sopro de esperança, criatividade e consciência. É a arte de ressignificar, de olhar para o que parecia fim e enxergar recomeços. Transformar, reinventar, dar nova vida — não como algo menor, mas como algo mais belo, mais forte, mais cheio de sentido.</p>
+        <p>Cada objeto carrega uma história. E, ao invés de ser esquecido, ele renasce em novas formas, em novos propósitos. É quando uma madeira esquecida se torna abrigo, quando tecidos esquecidos se tornam arte, quando pedaços soltos se encontram para formar algo único.</p>
+        <p>Upcycling é resistência poética contra o desperdício. É dizer que nada é lixo, que tudo pode florescer novamente nas mãos de quem vê além. É transformar passado em futuro, rejeito em beleza, descarte em criação.</p>
+        <p>Porque a verdadeira sustentabilidade mora na criatividade. E quem cria, também cuida, também cura.</p>
+      </div>
+      <div class="image">
+        <img src="https://source.unsplash.com/400x300/?recycle,craft" alt="Imagem Upcycling" />
+      </div>
+    </div>
+
+    <!-- DIY -->
+    <div class="box" data-aos="fade-up">
+      <h2>DIY - Do It Yourself</h2>
+      <div class="text">
+        <p>DIY é mais do que fazer — é se conectar. É olhar para as próprias mãos e perceber que nelas existe poder, autonomia e criação. É transformar matéria, tempo e intenção em algo que carrega alma, significado e autenticidade.</p>
+        <p>Quando fazemos algo nós mesmos, não criamos apenas objetos. Criamos vínculos, memórias e histórias. O simples ato de construir, costurar, pintar, montar ou consertar se torna uma forma de expressão, uma declaração de que somos capazes.</p>
+        <p>DIY é liberdade. É se libertar do consumo desenfreado e encontrar beleza na simplicidade do feito à mão. É perceber que, muitas vezes, o valor não está no que compramos, mas no que criamos. Cada traço imperfeito é uma assinatura, cada detalhe carrega intenção.</p>
+        <p>Fazer por si é um gesto de amor próprio, de resistência e de cuidado com o mundo. É transformar o ordinário em extraordinário, o simples em singular.</p>
+      </div>
+      <div class="image">
+        <img src="https://source.unsplash.com/400x300/?handmade,tools" alt="Imagem DIY" />
+      </div>
+    </div>
   </div>
 
   <!-- AOS JS -->
@@ -200,7 +232,7 @@
   <button id="chatbot-button" title="Abrir Chatbot">💬</button>
 
   <div id="chatbot-window">
-    <div id="chatbot-header">Chatbot IA Fake</div>
+    <div id="chatbot-header">Chatbot AI</div>
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-area">
       <input id="chatbot-input" type="text" placeholder="Digite sua mensagem..." />
@@ -229,31 +261,8 @@
       if (e.key === 'Enter') sendMessage();
     });
 
-    const respostas = [
-      {
-        pergunta: /palito[s]? de picole/i,
-        resposta: `Com palitos de picolé e cola, você pode fazer porta-copos, mini caixas decorativas, ou até pequenos porta-retratos! Basta colar os palitos formando a base e as laterais, deixar secar, e pintar ou decorar como quiser.`
-      },
-      {
-        pergunta: /porta[- ]?retrato/i,
-        resposta: `Para fazer um porta-retrato, você pode usar papelão, palitos de picolé, ou madeira leve. Monte a moldura colando as peças em formato retangular, deixe secar, e depois pinte ou decore com tecido ou papel colorido.`
-      },
-      {
-        pergunta: /garrafa/i,
-        resposta: `Com garrafas de vidro, você pode criar vasos decorativos ou luminárias. Basta pintar a garrafa, colocar luzinhas dentro ou flores, e pronto!`
-      },
-      {
-        pergunta: /papel/i,
-        resposta: `Papel usado pode ser reaproveitado para fazer cadernos artesanais, cartões personalizados ou até papel machê para esculturas.`
-      },
-      {
-        pergunta: /tecido/i,
-        resposta: `Tecidos velhos podem virar bolsas, almofadas ou panos de limpeza. Recorte e costure conforme sua criatividade!`
-      }
-    ];
-
     function sendMessage() {
-      const message = chatbotInput.value.trim();
+      const message = chatbotInput.value.trim().toLowerCase();
       if (!message) return;
 
       appendMessage(message, 'user');
@@ -261,50 +270,57 @@
       chatbotInput.disabled = true;
       chatbotSendBtn.disabled = true;
 
-      setTimeout(() => {
-        const respostaEncontrada = respostas.find(r => r.pergunta.test(message));
-        const botReply = respostaEncontrada
-          ? respostaEncontrada.resposta
-          : "Desculpe, ainda não tenho uma ideia para isso, mas tente perguntar sobre materiais comuns para reciclagem!";
+      const respostas = {
+        "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
+        "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
+        "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
+        "rolhas de cortiça": "Rolhas podem virar chaveiros ou suportes para pins, basta furar e decorar com tinta.",
+        "papelão": "Você pode fazer caixas organizadoras ou molduras usando papelão cortado e decorado.",
+        "tecido velho": "Use tecido velho para fazer almofadas, sacolas ou patchwork criativo.",
+        "lata": "Latas vazias podem virar luminárias ou vasos depois de uma boa pintura e decoração.",
+      };
 
-        typeWriterEffect(botReply, () => {
+      let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+
+      for (const chave in respostas) {
+        if (message.includes(chave)) {
+          respostaEncontrada = respostas[chave];
+          break;
+        }
+      }
+
+      // Função que simula digitação lenta
+      function typeWriter(text, index = 0) {
+        if (index === 0) {
+          // Criar o elemento da mensagem do bot
+          const botMessageDiv = document.createElement('div');
+          botMessageDiv.classList.add('message', 'bot-message');
+          chatbotMessages.appendChild(botMessageDiv);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+          typeWriter.botMessageDiv = botMessageDiv;
+        }
+        if (index < text.length) {
+          typeWriter.botMessageDiv.textContent += text.charAt(index);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+          setTimeout(() => typeWriter(text, index + 1), 30); // velocidade de digitação (30ms por caractere)
+        } else {
+          // Ao terminar, libera input
           chatbotInput.disabled = false;
           chatbotSendBtn.disabled = false;
           chatbotInput.focus();
-        });
-      }, 800);
+        }
+      }
+
+      typeWriter(respostaEncontrada);
     }
 
     function appendMessage(text, sender) {
       const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
-      if (sender === 'user') {
-        messageDiv.textContent = text;
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      } else {
-        // Para bot, vamos adicionar o div vazio aqui e depois preencher com o efeito de digitação
-        messageDiv.textContent = '';
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        return messageDiv;
-      }
-    }
-
-    function typeWriterEffect(text, callback) {
-      const messageDiv = appendMessage('', 'bot');
-      let i = 0;
-      const speed = 30; // ms por letra
-
-      const interval = setInterval(() => {
-        messageDiv.textContent += text.charAt(i);
-        i++;
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        if (i >= text.length) {
-          clearInterval(interval);
-          if (callback) callback();
-        }
-      }, speed);
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+      messageDiv.textContent = text;
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
   </script>
 </body>
