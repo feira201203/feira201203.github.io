@@ -6,7 +6,7 @@
   <title>Feira 201 & 203</title>
 
   <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
     body {
@@ -178,20 +178,16 @@
   <h1>Feira de ciências 201 & 203</h1>
 
   <div class="container">
-    <!-- Seus conteúdos já existentes -->
-
-    <div class="box">
+    <div class="box" data-aos="fade-up">
       <h2>Wabi-Sabi</h2>
       <div class="text">
-        <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida...</p>
-        <!-- texto resumido para não ficar muito longo aqui -->
+        <p>Wabi-Sabi é a arte de encontrar beleza na imperfeição e na efemeridade da vida, celebrando a simplicidade e o natural.</p>
       </div>
       <div class="image">
         <img src="https://source.unsplash.com/400x300/?nature,leaf" alt="Imagem Wabi-Sabi" />
       </div>
     </div>
-
-    <!-- Outros boxes aqui... -->
+    <!-- Outros conteúdos podem ser adicionados aqui -->
   </div>
 
   <!-- AOS JS -->
@@ -233,7 +229,6 @@
       if (e.key === 'Enter') sendMessage();
     });
 
-    // Banco de respostas fake para reciclagem
     const respostas = [
       {
         pergunta: /palito[s]? de picole/i,
@@ -272,34 +267,44 @@
           ? respostaEncontrada.resposta
           : "Desculpe, ainda não tenho uma ideia para isso, mas tente perguntar sobre materiais comuns para reciclagem!";
 
-        appendMessage(botReply, 'bot');
-
-        chatbotInput.disabled = false;
-        chatbotSendBtn.disabled = false;
-        chatbotInput.focus();
-      }, 800); // espera 0.8s para parecer mais natural
+        typeWriterEffect(botReply, () => {
+          chatbotInput.disabled = false;
+          chatbotSendBtn.disabled = false;
+          chatbotInput.focus();
+        });
+      }, 800);
     }
 
     function appendMessage(text, sender) {
       const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-
-      if (sender === 'bot') {
-        // efeito de digitação letra a letra
-        let i = 0;
-        const interval = setInterval(() => {
-          messageDiv.textContent += text.charAt(i);
-          i++;
-          if (i === text.length) clearInterval(interval);
-          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }, 30); // 30ms por letra
-      } else {
+      messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+      if (sender === 'user') {
         messageDiv.textContent = text;
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      } else {
+        // Para bot, vamos adicionar o div vazio aqui e depois preencher com o efeito de digitação
+        messageDiv.textContent = '';
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        return messageDiv;
       }
+    }
 
-      chatbotMessages.appendChild(messageDiv);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    function typeWriterEffect(text, callback) {
+      const messageDiv = appendMessage('', 'bot');
+      let i = 0;
+      const speed = 30; // ms por letra
+
+      const interval = setInterval(() => {
+        messageDiv.textContent += text.charAt(i);
+        i++;
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        if (i >= text.length) {
+          clearInterval(interval);
+          if (callback) callback();
+        }
+      }, speed);
     }
   </script>
 </body>
