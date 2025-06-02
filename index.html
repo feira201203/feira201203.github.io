@@ -270,47 +270,125 @@
       chatbotInput.disabled = true;
       chatbotSendBtn.disabled = true;
 
-      const respostas = {
-        "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
-        "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
-        "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
-        "rolhas de cortiça": "Rolhas podem virar chaveiros ou suportes para pins, basta furar e decorar com tinta.",
-        "papelão": "Você pode fazer caixas organizadoras ou molduras usando papelão cortado e decorado.",
-        "tecido": "Use tecido velho para fazer almofadas, sacolas ou patchwork criativo.",
-        "lata": "Latas vazias podem virar luminárias ou vasos depois de uma boa pintura e decoração.",
-        "pneu": "pneus usados podem ser transformados em puffs, balanços ou canteiros de jardim.",
-        "cd": "CDs antigos podem virar mosaicos decorativos, espelhos estilizados ou até bases para porta-copos brilhantes.",
-        "vidro de conserva": "Potes de vidro podem virar luminárias com velas, porta-trecos ou mini hortas com temperos.",
-        "caixa de leite": "Caixas de leite revestidas com tecido viram lindos porta-lápis ou organizadores de mesa.",
-        "camiseta": "Transforme camisetas usadas em sacolas ecológicas, almofadas ou até tapetes com tiras trançadas.",
-        "jeans": "Restos de jeans viram nécessaires, capas de caderno ou bolsas duráveis e estilosas.",
-        "caixa de ovo": "Caixas de ovos podem ser pintadas e usadas para organizar miudezas ou criar flores artesanais.",
-        "tampinha": "Use tampinhas metálicas para fazer murais, imãs de geladeira ou brincos criativos.",
-        "escada": "Uma escada de madeira antiga pode ser transformada em estante, cabideiro ou suporte para plantas.",
-        "ralador": "Raladores metálicos podem virar luminárias pendentes ou suportes de utensílios de cozinha.",
-        "guarda-chuva": "Tecidos de guarda-chuva podem ser reutilizados para capas de chuva de bolsa ou sacolas dobráveis.",
-        "teclado": "Teclas de teclados velhos podem virar acessórios como pulseiras, brincos ou quadros tipográficos.",
-        "lata de tinta": "Latas grandes de tinta podem ser usadas como bancos, lixeiras decoradas ou organizadores de jardim.",
-        "caixa de cereal": "Caixas de cereal podem virar organizadores de papel, pastas para documentos ou até brinquedos criativos para crianças.",
-        "camiseta": "Camisetas podem ser transformadas em tapetes, bolsas de mão ou fraldas reutilizáveis para pets.",
-        "jarra": "Jarras antigas podem ser usadas como vasos, luminárias com luzes de LED ou recipientes para alimentos.",
-        "paletes de madeira": "Paletes podem virar móveis rústicos como mesas, bancos ou até jardins verticais para plantas.",
-        "potes de sorvete": "Potes podem ser reutilizados como potes para armazenamento, vasos pequenos ou moldes para concreto.",
-        "calça jeans": "Calça jeans pode virar bolsas, painéis decorativos ou forro para móveis.",
-        "rolha de cortiça": "Rolhas podem ser usadas para fazer quadros de aviso, suportes para copos ou cabides decorativos.",
-        "camiseta de algodão": "Camisetas podem ser cortadas para fazer filtros de café reutilizáveis ou panos de limpeza.",
-        "latas de alumínio": "Latas podem ser transformadas em lanternas, vasos ou recipientes para guardar ferramentas.",
-        "garrafa de vidro": "Garrafas podem virar luminárias pendentes, recipientes para temperos ou vasos decorativos.",
-        "tênis": "Tênis pode virar vaso de plantas, brinquedos para pets ou peças decorativas com pintura.",
-        "madeira": "Restos de madeira podem ser usados para criar prateleiras, suportes para plantas ou brinquedos infantis.",
-        "tecido estampado": "Tecidos podem ser transformados em almofadas, sacolas ou colchas de retalhos.",
-        "cabo de vassoura": "Cabos podem virar suportes para ferramentas, varais ou suportes para plantas penduradas.",
-        "escova de dentes": "Escovas velhas podem virar ferramentas para limpeza de peças pequenas ou artesanato detalhado.",
-        "trás ela de volta": "Ela não te merecia, supera mano.",
+const respostas = {
+  "palitos de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
+  "porta retrato": "Para fazer um porta-retrato, cole palitos de picolé formando um quadrado e fixe uma foto no centro com cola quente ou fita dupla face.",
+  "garrafa pet": "Com garrafa PET você pode criar um vaso de plantas decorativo cortando e pintando o plástico.",
+  "rolha de cortiça": "Rolhas podem ser usadas para fazer quadros de aviso, suportes para copos ou cabides decorativos.",
+  "papelão": "Você pode fazer caixas organizadoras ou molduras usando papelão cortado e decorado.",
+  "tecido": "Use tecido velho para fazer almofadas, sacolas ou patchwork criativo.",
+  "lata": "Latas vazias podem virar luminárias ou vasos depois de uma boa pintura e decoração.",
+  "pneu": "Pneus usados podem ser transformados em puffs, balanços ou canteiros de jardim.",
+  "cd": "CDs antigos podem virar mosaicos decorativos, espelhos estilizados ou até bases para porta-copos brilhantes.",
+  "vidro de conserva": "Potes de vidro podem virar luminárias com velas, porta-trecos ou mini hortas com temperos.",
+  "caixa de leite": "Caixas de leite revestidas com tecido viram lindos porta-lápis ou organizadores de mesa.",
+  "camiseta": "Camisetas podem ser transformadas em tapetes, bolsas de mão ou fraldas reutilizáveis para pets.",
+  "jeans": "Restos de jeans viram nécessaires, capas de caderno ou bolsas duráveis e estilosas.",
+  "caixa de ovo": "Caixas de ovos podem ser pintadas e usadas para organizar miudezas ou criar flores artesanais.",
+  "tampinha": "Use tampinhas metálicas para fazer murais, imãs de geladeira ou brincos criativos.",
+  "escada": "Uma escada de madeira antiga pode ser transformada em estante, cabideiro ou suporte para plantas.",
+  "ralador": "Raladores metálicos podem virar luminárias pendentes ou suportes de utensílios de cozinha.",
+  "guarda-chuva": "Tecidos de guarda-chuva podem ser reutilizados para capas de chuva de bolsa ou sacolas dobráveis.",
+  "teclado": "Teclas de teclados velhos podem virar acessórios como pulseiras, brincos ou quadros tipográficos.",
+  "lata de tinta": "Latas grandes de tinta podem ser usadas como bancos, lixeiras decoradas ou organizadores de jardim.",
+  "caixa de cereal": "Caixas de cereal podem virar organizadores de papel, pastas para documentos ou até brinquedos criativos para crianças.",
+  "jarra": "Jarras antigas podem ser usadas como vasos, luminárias com luzes de LED ou recipientes para alimentos.",
+  "paletes de madeira": "Paletes podem virar móveis rústicos como mesas, bancos ou até jardins verticais para plantas.",
+  "potes de sorvete": "Potes podem ser reutilizados como potes para armazenamento, vasos pequenos ou moldes para concreto.",
+  "calça jeans": "Calça jeans pode virar bolsas, painéis decorativos ou forro para móveis.",
+  "camiseta de algodão": "Camisetas podem ser cortadas para fazer filtros de café reutilizáveis ou panos de limpeza.",
+  "latas de alumínio": "Latas podem ser transformadas em lanternas, vasos ou recipientes para guardar ferramentas.",
+  "garrafa de vidro": "Garrafas podem virar luminárias pendentes, recipientes para temperos ou vasos decorativos.",
+  "tênis": "Tênis pode virar vaso de plantas, brinquedos para pets ou peças decorativas com pintura.",
+  "madeira": "Restos de madeira podem ser usados para criar prateleiras, suportes para plantas ou brinquedos infantis.",
+  "tecido estampado": "Tecidos podem ser transformados em almofadas, sacolas ou colchas de retalhos.",
+  "cabo de vassoura": "Cabos podem virar suportes para ferramentas, varais ou suportes para plantas penduradas.",
+  "escova de dentes": "Escovas velhas podem virar ferramentas para limpeza de peças pequenas ou artesanato detalhado.",
+  "trás ela de volta": "Ela não te merecia, supera mano."
+};
 
-      };
+const correcoes = {
+  // Palito de picolé
+  "palito de picole": "palitos de picole e cola",
+  "palitos de picole": "palitos de picole e cola",
+  "palito de picolé": "palitos de picole e cola",
+  "palitos de picolé": "palitos de picole e cola",
+  "palitu de picole": "palitos de picole e cola",
+  "palitos picole": "palitos de picole e cola",
 
-      let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+  // Rolha
+  "rolha de cortiça": "rolha de cortiça",
+  "rolhas de cortiça": "rolha de cortiça",
+  "rolha de vinho": "rolha de cortiça",
+  "rolha": "rolha de cortiça",
+  "rolhas": "rolha de cortiça",
+  "rolha de cortissa": "rolha de cortiça",
+  "rolhas vinho": "rolha de cortiça",
+
+  // Pneu
+  "pneu": "pneu",
+  "pineu": "pneu",
+  "penéu": "pneu",
+  "pneu velho": "pneu",
+  "pneus": "pneu",
+
+  // Garrafa PET
+  "garafa pet": "garrafa pet",
+  "garrafinha pet": "garrafa pet",
+  "pet": "garrafa pet",
+
+  // Camiseta
+  "camisa": "camiseta",
+  "camizeta": "camiseta",
+  "camiseta usada": "camiseta",
+
+  // Papelão
+  "papelao": "papelão",
+  "papel cartao": "papelão",
+
+  // Tecido
+  "pano velho": "tecido",
+  "retalho": "tecido",
+  "pano usado": "tecido",
+
+  // Caixa de leite
+  "caixinha de leite": "caixa de leite",
+  "caixa leite": "caixa de leite",
+
+  // Garrafa de vidro
+  "vidro": "garrafa de vidro",
+  "garrafa vidro": "garrafa de vidro",
+
+  // Caixa de ovo
+  "caixa de ovos": "caixa de ovo",
+  "caixinha de ovo": "caixa de ovo",
+
+  // Paletes
+  "pallet": "paletes de madeira",
+  "paletes": "paletes de madeira",
+  "palet": "paletes de madeira",
+
+  // Jeans
+  "calça jeans": "jeans",
+  "jean": "jeans"
+};
+
+function normalizarEntrada(texto) {
+  texto = texto.toLowerCase().trim();
+
+  // Verifica se a entrada tem correção
+  if (correcoes[texto]) {
+    return correcoes[texto];
+  }
+
+  return texto;
+}
+
+// Exemplo de uso
+function buscarResposta(pergunta) {
+  const perguntaCorrigida = normalizarEntrada(pergunta);
+  return respostas[perguntaCorrigida] || "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+}
 
       for (const chave in respostas) {
         if (message.includes(chave)) {
