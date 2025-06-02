@@ -307,88 +307,57 @@ const respostas = {
   "trás ela de volta": "Ela não te merecia, supera mano."
 };
 
-const correcoes = {
-  // Palito de picolé
-  "palito de picole": "palitos de picole e cola",
-  "palitos de picole": "palitos de picole e cola",
-  "palito de picolé": "palitos de picole e cola",
-  "palitos de picolé": "palitos de picole e cola",
-  "palitu de picole": "palitos de picole e cola",
-  "palitos picole": "palitos de picole e cola",
-
-  // Rolha
-  "rolha de cortiça": "rolha de cortiça",
-  "rolhas de cortiça": "rolha de cortiça",
-  "rolha de vinho": "rolha de cortiça",
-  "rolha": "rolha de cortiça",
-  "rolhas": "rolha de cortiça",
-  "rolha de cortissa": "rolha de cortiça",
-  "rolhas vinho": "rolha de cortiça",
-
-  // Pneu
-  "pneu": "pneu",
-  "pineu": "pneu",
-  "penéu": "pneu",
-  "pneu velho": "pneu",
-  "pneus": "pneu",
-
-  // Garrafa PET
-  "garafa pet": "garrafa pet",
-  "garrafinha pet": "garrafa pet",
-  "pet": "garrafa pet",
-
-  // Camiseta
-  "camisa": "camiseta",
-  "camizeta": "camiseta",
-  "camiseta usada": "camiseta",
-
-  // Papelão
-  "papelao": "papelão",
-  "papel cartao": "papelão",
-
-  // Tecido
-  "pano velho": "tecido",
-  "retalho": "tecido",
-  "pano usado": "tecido",
-
-  // Caixa de leite
-  "caixinha de leite": "caixa de leite",
-  "caixa leite": "caixa de leite",
-
-  // Garrafa de vidro
-  "vidro": "garrafa de vidro",
-  "garrafa vidro": "garrafa de vidro",
-
-  // Caixa de ovo
-  "caixa de ovos": "caixa de ovo",
-  "caixinha de ovo": "caixa de ovo",
-
-  // Paletes
-  "pallet": "paletes de madeira",
-  "paletes": "paletes de madeira",
-  "palet": "paletes de madeira",
-
-  // Jeans
-  "calça jeans": "jeans",
-  "jean": "jeans"
-};
-
-function normalizarEntrada(texto) {
-  texto = texto.toLowerCase().trim();
-
-  // Verifica se a entrada tem correção
-  if (correcoes[texto]) {
-    return correcoes[texto];
+ // Função para calcular similaridade (usando distância de Levenshtein simplificada)
+  function similaridade(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    const costs = Array(b.length + 1).fill().map((_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      let prev = i;
+      for (let j = 1; j <= b.length; j++) {
+        const val = a[i - 1] === b[j - 1] ? costs[j - 1] : 1 + Math.min(costs[j - 1], costs[j], prev);
+        costs[j - 1] = prev;
+        prev = val;
+      }
+      costs[b.length] = prev;
+    }
+    return 1 - (costs[b.length] / Math.max(a.length, b.length));
   }
 
-  return texto;
-}
+  function encontrarResposta(pergunta) {
+    pergunta = pergunta.toLowerCase().trim();
+    let melhorChave = null;
+    let melhorSim = 0.6; // limite mínimo de similaridade aceitável
 
-// Exemplo de uso
-function buscarResposta(pergunta) {
-  const perguntaCorrigida = normalizarEntrada(pergunta);
-  return respostas[perguntaCorrigida] || "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
-}
+    for (const chave in respostas) {
+      const sim = similaridade(pergunta, chave);
+      if (sim > melhorSim) {
+        melhorSim = sim;
+        melhorChave = chave;
+      }
+    }
+
+    if (melhorChave) {
+      return respostas[melhorChave];
+    } else {
+      return "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
+    }
+  }
+
+  // Suponha que você use um input de texto com id="entrada" e uma div com id="resposta"
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("entrada");
+    const saida = document.getElementById("resposta");
+
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const texto = input.value;
+        const resposta = encontrarResposta(texto);
+        saida.textContent = resposta;
+        input.value = ""; // limpa o campo para nova pergunta
+      }
+    });
+  });
 
       for (const chave in respostas) {
         if (message.includes(chave)) {
