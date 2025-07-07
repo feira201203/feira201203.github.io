@@ -46,6 +46,28 @@
   font-size: 15px;
 }
     
+    .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* espaçamento entre os blocos */
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.small-box {
+  padding: 15px;
+}
+
+.small-box h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.small-box .text p {
+  font-size: 15px;
+}
+    
     .box {
       background-color: white;
       color: #005900;
@@ -239,41 +261,48 @@
 </div>
   </div>
 
-  <!-- Projetos de alunos -->
-<div class="box small-box" data-aos="fade-up">
-  <h3>Projeto 1: Vaso de Garrafa PET</h3>
-  <div class="text">
-    <p>Um vaso feito a partir de garrafa PET reutilizada, decorado com pintura e detalhes simples, mostrando o poder do upcycling aliado ao DIY.</p>
-  </div>
-  <div class="image">
-    <img src="https://github.com/user-attachments/assets/a04bd387-f43b-4a73-95c2-6970afa648a6" alt="Vaso de Garrafa PET">
-  </div>
-</div>
+ <!-- Projetos de alunos -->
+<div class="projects-grid">
+  <div class="box small-box" data-aos="fade-up">
+    <h3>Projeto 1: Vaso de Garrafa PET</h3>
+    <div class="text">
+      <p>Um vaso feito a partir de garrafa PET reutilizada, decorado com pintura e detalhes simples, mostrando o poder do upcycling aliado ao DIY.</p>
+    </div>
+    <div class="image">
+      <img src="https://github.com/user-attachments/assets/a04bd387-f43b-4a73-95c2-6970afa648a6" alt="Vaso de Garrafa PET">
+    </div>
   </div>
 
-<div class="box small-box" data-aos="fade-up">
-  <h3>Projeto 2: Porta-lápis de Lata</h3>
-  <div class="text">
-    <p>Este porta-lápis usa uma lata de alumínio reciclada, trabalhada com técnica Wabi-Sabi de pintura manual e pequenos arranhões intencionais.</p>
+  <div class="box small-box" data-aos="fade-up">
+    <h3>Projeto 2: Porta-lápis de Lata</h3>
+    <div class="text">
+      <p>Este porta-lápis usa uma lata de alumínio reciclada, trabalhada com técnica Wabi-Sabi de pintura manual.</p>
+    </div>
+    <div class="image">
+      <img src="https://github.com/user-attachments/assets/1b8049f4-be7c-4e94-950f-94c5bf0550ff" alt="Porta-lápis de Lata">
+    </div>
   </div>
-  <div class="image">
-    <img src="https://github.com/user-attachments/assets/8ef3e0f5-06e5-4789-abf0-d406e11eeda0
-" alt="Porta-lápis de Lata">
+
+  <div class="box small-box" data-aos="fade-up">
+    <h3>Projeto 3: Organizador de Papelão</h3>
+    <div class="text">
+      <p>Organizador de mesa feito com papelão reaproveitado, mostrando como materiais simples podem ganhar nova vida.</p>
+    </div>
+    <div class="image">
+      <img src="https://github.com/user-attachments/assets/8ef3e0f5-06e5-4789-abf0-d406e11eeda0" alt="Organizador de Papelão">
+    </div>
+  </div>
+
+  <div class="box small-box" data-aos="fade-up">
+    <h3>Projeto 4: Luminária de Vidro</h3>
+    <div class="text">
+      <p>Luminária feita com pote de vidro e luzes de LED, usando o conceito DIY e reutilização criativa de materiais.</p>
+    </div>
+    <div class="image">
+      <img src="https://github.com/user-attachments/assets/fa3de82c-5f3b-4f85-9710-cf70aab3e55a" alt="Luminária de Vidro">
+    </div>
   </div>
 </div>
-</div>
-  
-<div class="box small-box" data-aos="fade-up">
-  <h3>Projeto 3: Organizador de Papelão</h3>
-  <div class="text">
-    <p>Organizador de mesa feito com papelão reaproveitado, mostrando como materiais simples podem ganhar nova vida e função em casa.</p>
-  </div>
-  <div class="image">
-    <img src="https://github.com/user-attachments/assets/1b8049f4-be7c-4e94-950f-94c5bf0550ff
-" alt="Organizador de Papelão">
-  </div>
-</div>
-  </div>
   
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
