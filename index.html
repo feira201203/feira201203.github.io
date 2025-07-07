@@ -81,8 +81,13 @@ h1 {
 .small-box .image img {
   height: 300px; /* altura para os blocos menores */
 }
-
+    
+/* Ajuste específico só para a imagem do DIY */
+.box:nth-of-type(3) .image img {
+  object-position: center 70%;
+}
 /* 🔹 Grade dos blocos pequenos */
+    
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
