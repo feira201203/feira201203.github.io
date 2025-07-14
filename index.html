@@ -411,37 +411,37 @@ h1 {
   </div>
 
   <script>
-    const chatbotButton = document.getElementById('chatbot-button');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+  const chatbotButton = document.getElementById('chatbot-button');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSendBtn = document.getElementById('chatbot-send-btn');
 
-    chatbotButton.addEventListener('click', () => {
-      if (chatbotWindow.style.display === 'flex') {
-        chatbotWindow.style.display = 'none';
-      } else {
-        chatbotWindow.style.display = 'flex';
-        chatbotInput.focus();
-      }
-    });
+  chatbotButton.addEventListener('click', () => {
+    if (chatbotWindow.style.display === 'flex') {
+      chatbotWindow.style.display = 'none';
+    } else {
+      chatbotWindow.style.display = 'flex';
+      chatbotInput.focus();
+    }
+  });
 
-    chatbotSendBtn.addEventListener('click', sendMessage);
-    chatbotInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
+  chatbotSendBtn.addEventListener('click', sendMessage);
+  chatbotInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
 
-    function sendMessage() {
-      const message = chatbotInput.value.trim().toLowerCase();
-      if (!message) return;
+  function sendMessage() {
+    const message = chatbotInput.value.trim().toLowerCase();
+    if (!message) return;
 
-      appendMessage(message, 'user');
-      chatbotInput.value = '';
-      chatbotInput.disabled = true;
-      chatbotSendBtn.disabled = true;
+    appendMessage(message, 'user');
+    chatbotInput.value = '';
+    chatbotInput.disabled = true;
+    chatbotSendBtn.disabled = true;
 
-      const respostas = {
-        "palitos de picole": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
+    const respostas = {
+      "palitos de picole": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
         "palitos de picolé e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
         "palito de picole e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
         "palito de picolé e cola": "Você pode fazer um porta-retrato simples usando palitos de picolé colados em formato de moldura! Pinte com tinta acrílica para decorar.",
@@ -566,51 +566,60 @@ h1 {
         "Sixnine": "https://github.com/user-attachments/assets/4ab86d62-c78a-4647-b37c-98f85252b5be",
         "rafael": "É considerado por muitos o maior fisiculturista de todos os tempos. Antes da fama, trabalhou como policial no Rio Vargedo, Foi incentivado pelo Fábio Carara a competir na musculação e, a partir daí, iniciou uma carreira lendária. Com uma genética impressionante e uma dedicação inabalável, Rafael se destacou rapidamente no mundo do bodybuilding. Ele conquistou o título de Mr. Olympia oito vezes consecutivas entre 1998 e 2005, um feito histórico que o colocou no topo do esporte. Atualmente é professor de matemática, TRISTE!",
 
-        
-      };
+    let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
 
-      let respostaEncontrada = "Desculpa, não tenho uma ideia para isso agora, mas tente combinar diferentes materiais recicláveis para criar algo único!";
-
-      for (const chave in respostas) {
-        if (message.includes(chave)) {
-          respostaEncontrada = respostas[chave];
-          break;
-        }
+    for (const chave in respostas) {
+      if (message.includes(chave)) {
+        respostaEncontrada = respostas[chave];
+        break;
       }
+    }
 
-      // Função que simula digitação lenta
-      function typeWriter(text, index = 0) {
-        if (index === 0) {
-          // Criar o elemento da mensagem do bot
-          const botMessageDiv = document.createElement('div');
-          botMessageDiv.classList.add('message', 'bot-message');
-          chatbotMessages.appendChild(botMessageDiv);
-          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-          typeWriter.botMessageDiv = botMessageDiv;
-        }
-        if (index < text.length) {
-          typeWriter.botMessageDiv.textContent += text.charAt(index);
-          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-          setTimeout(() => typeWriter(text, index + 1), 30); // velocidade de digitação (30ms por caractere)
-        } else {
-          // Ao terminar, libera input
-          chatbotInput.disabled = false;
-          chatbotSendBtn.disabled = false;
-          chatbotInput.focus();
-        }
-      }
-
+    // Verifica se é um link de imagem
+    if (respostaEncontrada.startsWith('http')) {
+      typeWriterImage(respostaEncontrada);
+    } else {
       typeWriter(respostaEncontrada);
     }
+  }
 
-    function appendMessage(text, sender) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-      messageDiv.textContent = text;
-      chatbotMessages.appendChild(messageDiv);
+  function typeWriter(text, index = 0) {
+    if (index === 0) {
+      const botMessageDiv = document.createElement('div');
+      botMessageDiv.classList.add('message', 'bot-message');
+      chatbotMessages.appendChild(botMessageDiv);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      typeWriter.botMessageDiv = botMessageDiv;
     }
-  </script>
+    if (index < text.length) {
+      typeWriter.botMessageDiv.textContent += text.charAt(index);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      setTimeout(() => typeWriter(text, index + 1), 30);
+    } else {
+      chatbotInput.disabled = false;
+      chatbotSendBtn.disabled = false;
+      chatbotInput.focus();
+    }
+  }
+
+  function typeWriterImage(url) {
+    const botMessageDiv = document.createElement('div');
+    botMessageDiv.classList.add('message', 'bot-message');
+    botMessageDiv.innerHTML = `<img src="${url}" alt="Imagem" style="max-width: 100%; border-radius: 8px;">`;
+    chatbotMessages.appendChild(botMessageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    chatbotInput.disabled = false;
+    chatbotSendBtn.disabled = false;
+    chatbotInput.focus();
+  }
+
+  function appendMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+    messageDiv.textContent = text;
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+</script>
 </body>
 </html>
