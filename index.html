@@ -26,16 +26,12 @@ h1 {
   max-width: 1200px; /* aumenta um pouco pra caber as duas colunas */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 600px 1fr; /* coluna fixa à esquerda + resto à direita */
+  grid-template-columns: 400px 1fr; /* coluna fixa à esquerda + resto à direita */
   gap: 20px;
   align-items: start;
 }
 
-/* manda os 3 primeiros quadros para a coluna da esquerda */
-.container .box:nth-child(-n+3) {
-  grid-column: 1;
-  width: 100%;
-}
+
 
 /* manda os outros para a coluna da direita */
 .container .box:nth-child(n+4) {
@@ -676,6 +672,7 @@ h1 {
 </script>
 </body>
 </html>
+
 
 
 
