@@ -127,12 +127,13 @@ h1 {
 }
 
 .projects-grid {
+  grid-column: 2 / span 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr; /* agora são 2 colunas */
   gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto;
+  align-self: start; /* garante que começa no topo */
 }
+
 
 /* 🔹 Blocos pequenos */
 .small-box {
@@ -675,6 +676,7 @@ h1 {
 </script>
 </body>
 </html>
+
 
 
 
