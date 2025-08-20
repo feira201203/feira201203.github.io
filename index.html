@@ -23,12 +23,25 @@ h1 {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px; /* aumenta um pouco pra caber as duas colunas */
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 350px 1fr; /* coluna fixa à esquerda + resto à direita */
   gap: 20px;
+  align-items: start;
 }
+
+/* manda os 3 primeiros quadros para a coluna da esquerda */
+.container .box:nth-child(-n+3) {
+  grid-column: 1;
+  width: 100%;
+}
+
+/* manda os outros para a coluna da direita */
+.container .box:nth-child(n+4) {
+  grid-column: 2;
+}
+
 
 .box {
   background-color: #E8D3B5;
@@ -662,6 +675,7 @@ h1 {
 </script>
 </body>
 </html>
+
 
 
 
